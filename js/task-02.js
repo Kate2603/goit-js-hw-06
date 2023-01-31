@@ -33,11 +33,14 @@ const ingredients = [
 ];
 
 
-const ulElem = document.querySelector('#ingredients');
+let ulElem = document.getElementById('ingredients');
 
-for (const ingredient of ingredients) {
+const elements = [];
+
+for (let i = 0; i < ingredients.length; i += 1) {
   const liElem = document.createElement('li');
-  liElem.textContent = ingredient;
-  ulElem.appendChild(liElem);
-}
-
+  liElem.classList.add('item');
+  liElem.textContent = ingredients[i];
+  elements.push(liElem);
+};
+ulElem.append(...elements);
